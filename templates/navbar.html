@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a.logo {
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .navbar a.icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar a:not(.icon) {
+                display: none;
+            }
+
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+
+            .navbar.responsive a.icon {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        .right {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar" id="navbar">
+        <div class="left">
+            <a href="#" class="logo">Your Logo</a>
+
+        </div>
+        <div class="right">
+
+            <a class="li" href="#home">Home</a>
+            <a class="li" href="#about">About</a>
+            <a class="li" href="#services">Services</a>
+            <a class="li" href="#contact">Contact</a>
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var x = document.getElementById("navbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
