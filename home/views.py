@@ -23,3 +23,10 @@ def service(request):
 
 def blog(request):
     return render(request, 'blog.html')
+
+def sign_up(request):
+    return render(request, 'sign_up.html')
+
+def sign_in(request):
+    return render(request, 'sign_in.html')
+
