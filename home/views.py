@@ -1,9 +1,18 @@
 from django.shortcuts import render
+from home.models import Contact
 
 def home(request):
     return render(request, 'index.html')
 
 def contact(request):
+    if request.method=="POST":
+        firstname=request.POST.get('fname')
+        lastname=request.POST.get('lname')
+        email=request.POST.get('email')
+        subject=request.POST.get('subject')
+        message=request.POST.get('message')
+        new_contact=Contact(FirstName=firstname,LastName=lastname,Email=email,Subject=subject,Message=message)
+        new_contact.save()
     return render(request, 'contact.html')
 
 def about(request):
