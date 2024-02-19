@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from home.models import Contact
+from home.models import Sign_up
 
 def home(request):
     return render(request, 'index.html')
@@ -25,6 +26,14 @@ def blog(request):
     return render(request, 'blog.html')
 
 def sign_up(request):
+    if request.method=="POST":
+        firstname=request.POST.get('fname')
+        lastname=request.POST.get('lname')
+        email=request.POST.get('email') 
+        password=request.POST.get('password')
+        cpassword=request.POST.get('cpassword')
+        newsign_up=Sign_up(FirstName=firstname,LastName=lastname,Email=email,Password=password,Cpassword=cpassword)
+        newsign_up.save()
     return render(request, 'sign_up.html')
 
 def sign_in(request):
